@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Container, Navbar, Nav } from 'react-bootstrap';
-import { Link, Route, BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from './Home';
 import About from './About';
 import Users from './Users';
@@ -9,20 +9,20 @@ import Users from './Users';
 function App() {
   return (
     <div className="App">
-      <Router>
+      <Router >
         <Navbar bg="primary" data-bs-theme="dark">
           <Container>
-            <Link to="/"><Navbar.Brand>Logo</Navbar.Brand></Link>
+            <Navbar.Brand><Link to="/">Logo</Link></Navbar.Brand>
             <Nav className="me-auto">
-              <Link to="/"><Nav.Link>Home</Nav.Link></Link>
-              <Link to="/about"><Nav.Link>About</Nav.Link></Link>
-              <Link to="/users"><Nav.Link>Users</Nav.Link></Link>
+              <Nav.Link><Link to="/">Home</Link></Nav.Link>
+              <Nav.Link><Link to="/about">About</Link></Nav.Link>
+              <Nav.Link><Link to="/users">Users</Link></Nav.Link>
             </Nav>
           </Container>
         </Navbar>
-        <Route Component={About} path="/about" ></Route>
-        <Route Component={Users} path="/users" ></Route>
-        <Route Component={Home} path="/" ></Route>
+        <Route path="/about" Component={About}></Route>
+        <Route path="/users" Component={Users}></Route>
+        <Route exact path="/" Component={Home}></Route>
       </Router>
     </div>
   );
